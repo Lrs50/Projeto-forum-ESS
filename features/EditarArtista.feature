@@ -36,10 +36,10 @@ Then vejo uma mensagem "Modificações feitas com sucesso"
 And o sistema atualizou os dados do artista
 
 Scenario: Mudança nula
-Given eu estou logado como usuario "administrador" e senha "duck123"
+Given eu estou logado como usuario "administrador" e senha "donkey123"
 And estou na pagina "Edição de artistas"
-And o artista "Hulk Sanches"  esta cadastrado no sistema
-When preencho o campo "Nome" com "Hulk Sanches"
+And o artista "Hulk Carneiro"  esta cadastrado no sistema
+When preencho o campo "Nome" com "Hulk Carneiro"
 Then Consigo editar o campo "Descrição" desse artista
 And nenhuma moficicação é feita
 When confirmar modificações 
