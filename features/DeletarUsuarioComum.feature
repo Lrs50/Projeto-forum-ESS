@@ -3,7 +3,7 @@ As usuário administrador
 I want to Deletar uma conta usuário comum
 So that eu possa exercer a administração do site de compartilhamentos de review no qual sou administrador
 
-Scenario: Remoção bem sucedida de um usuário comum existente no sistema.
+Scenarioo: Remoção bem sucedida de um usuário comum existente no sistema.
 	Given Eu estou logado como usuário “administrador” com senha “1234”
 	And Estou na página “deletar usuário comum”
 	And O Usuário comum “Marcelo” com id “12390” está cadastrado no sistema
@@ -36,4 +36,20 @@ Scenario: Tentativa mal sucedida de remover um usuário comum devido a id e nome
 	And O Usuário administrador "Lucas" com id “12392” está cadastrado no sistema
 	When Eu tento remover o usuário comum "Marcelo" com id “12392” 
 	Then Posso ver uma mensagem de erro "Não existe um usuario com essa combinação nome e de id"
+	And Nenhum usuário é removido do sistema
+
+Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de preenchimento de id e nome.
+	Given Eu estou logado como usuário “administrador” com senha “1234”
+	And Estou na página “deletar usuário comum”
+    And O Usuário administrador "Marcelo" com id “12390” está cadastrado no sistema
+	When Eu tento remover o usuário comum "" com id “” 
+	Then Posso ver uma mensagem de erro "Usuario e Id não foram preenchidos"
+	And Nenhum usuário é removido do sistema
+
+Scenario: Tentativa mal sucedida de remover um usuário comum devidoa  falta de preenchimento de id.
+	Given Eu estou logado como usuário “administrador” com senha “1234”
+	And Estou na página “deletar usuário comum”
+    And O Usuário administrador "Marcelo" com id “12390” está cadastrado no sistema
+	When Eu tento remover o usuário comum "Marcelo" com id “” 
+	Then Posso ver uma mensagem de erro "Id não foi preenchido"
 	And Nenhum usuário é removido do sistema
