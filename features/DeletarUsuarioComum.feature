@@ -52,7 +52,7 @@ Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de 
 	And Nenhum usuário é removido do sistema
 	And Posso ver uma messagem "preencha todos os campo"
 
-Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de preenchimento de nome.
+Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de preenchimento do nome do usuario.
 	Given Eu estou logado como usuário “administrador” com senha “1234”
 	And Estou na página “deletar usuário comum”
     And O Usuário administrador "Marcelo" com id “12390” está cadastrado no sistema
