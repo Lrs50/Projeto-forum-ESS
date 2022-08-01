@@ -60,3 +60,4 @@ Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de 
 	When Eu tento remover o usuário comum "" com id “12390” 
 	Then Posso ver uma mensagem de erro "Nome não foi preenchido"
 	And Nenhum usuário é removido do sistema
+	And Posso ver uma mensagem "Preencha todos os campos"
