@@ -20,7 +20,6 @@ And o artista "Hulk Sanches"  não esta cadastrado no sistema
 When preencho o campo "Nome" com "Hulk Sanches"
 Then vejo uma mensagem "Não existe nenhum artista com o nome fornecido"
 
-
 Scenario: Mais de um artisca com o mesmo nome
 Given eu estou logado como usuario "administrador" e senha "duck123"
 And estou na pagina "Edição de artistas"
@@ -33,3 +32,14 @@ Then Consigo editar o campo "Descrição" desse artista
 When confirmar modificações 
 Then vejo uma mensagem "Modificações feitas com sucesso"
 And o sistema atualizou os dados do artista
+
+Scenario: Mudança nula
+Given eu estou logado como usuario "administrador" e senha "duck123"
+And estou na pagina "Edição de artistas"
+And o artista "Hulk Sanches"  esta cadastrado no sistema
+When preencho o campo "Nome" com "Hulk Sanches"
+Then Consigo editar o campo "Descrição" desse artista
+And nenhuma moficicação é feita
+When confirmar modificações 
+Then vejo uma mensagem "Modificações feitas com sucesso"
+
