@@ -59,3 +59,15 @@ And Modifico o seu campo “Nome” para "Gabriel"
 And Outro moderador do sistema remove o usuário com “Nome” e “ID” iguais a “Lucas” e “12392”
 And Confirmo a modificação
 Then Posso ver mensagem de erro "Usuário não existente!", pois o usuário com “Nome” e “ID” iguais a “Lucas” e “12392” foi removido do sistema, logo não há edição
+
+Scenario: Edição de ID bem sucedida com ID igual a outro usuário pois o usuário é deletado antes da edição ser completada
+Given O sistema possui um usuário administrador com “Nome”, “ID” e “Senha” iguais a “Lucas”, “12392” e “1234”
+And O sistema possui um usuário administrador com “Nome”, “ID” e “Senha” iguais a “Marcelo”, “12390” e “8123”
+And Eu estou logado como moderador do sistema
+And Estou na página “Edição de Usuários”
+When Eu seleciono o usuário administrador com “Nome”, “ID” e “Senha” iguais a “Lucas”, “12392” e “1234”
+And Modifico o campo “ID” para “12390”
+And O usuário administrador com “Nome”, “ID” e “Senha” iguais a “Marcelo”, “12390” e “8123” é deletado por outro moderador do sistema
+And Confirmo a modificação
+Then Posso ver mensagem de confirmação
+And O usuário administrador com “Nome”, “ID” e “Senha” iguais a “Lucas”, “12392” e “1234” é modificado no sistema para ter o seu “ID” igual a “12390"
