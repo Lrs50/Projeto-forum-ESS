@@ -11,14 +11,12 @@ Scenario: Remoção bem sucedida de um usuário comum existente no sistema.
 	Then Posso ver uma mensagem de confirmação “O usuário foi removido com sucesso”
 	And O usuário “Marcelo” com id “12390” é removido do sistema
 
-
 Scenario: Remoção mal sucedida de um usuário comum inexistente no sistema
 	Given Eu estou logado como usuário “administrador” com senha “1234”
 	And Estou na página “deletar usuário comum”
 	And O Usuário comum “Marcelo” com id “12390” não está cadastrado no sistema
 	When Eu tento remover o usuário comum “Marcelo” com id “12390” 
 	Then Posso ver uma mensagem de erro "Não existe um usuario cadastrado com essas credenciais”
-
 
 Scenario: Tentativa mal sucedida de remover um usuário administrador.
 	Given Eu estou logado como usuário “administrador” com senha “1234”
@@ -27,7 +25,6 @@ Scenario: Tentativa mal sucedida de remover um usuário administrador.
 	When Eu tento remover o usuário administrador "administrador2" com id “12391” 
 	Then Posso ver uma mensagem de erro "você não pode remover um usuário administrador"
 	And Nenhum usuário é removido do sistema
-
 
 Scenario: Tentativa mal sucedida de remover um usuário comum devido a id e nomes que estão cadastrados mas não são um par válido
 	Given Eu estou logado como usuário “administrador” com senha “1234”
@@ -53,7 +50,6 @@ Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de 
 	When Eu tento remover o usuário comum "Marcelo" com id “” 
 	Then Posso ver uma mensagem de erro "Id não foi preenchido"
 	And Nenhum usuário é removido do sistema
-
 
 Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de preenchimento de nome.
 	Given Eu estou logado como usuário “administrador” com senha “1234”
