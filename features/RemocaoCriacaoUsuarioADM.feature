@@ -39,7 +39,7 @@ When eu preencho os campos para criação de usuário "administrador" com "apeli
 Then eu vejo uma mensagem de erro  "Já existe um usuario com esse apelido"
 Then eu volto para a pagina "cadastro de usuario administrador"
 
-Scenario: Remoção mal sucedida de um usuário administrador por erro de ID
+Scenario: Remoção mal sucedida de um usuário administrador por erro match entre o ID e o Nome
 Given eu sou o moderador do sistema
 And o usuário administrador com "Nome" "Lucas Reis" e "ID" "1991" está cadastrado no sistema
 And estou na página "Remoção de usuário administrador"
