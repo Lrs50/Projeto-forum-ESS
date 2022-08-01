@@ -58,4 +58,4 @@ When Eu seleciono o usuário administrador com “Nome”, “ID” e “Senha�
 And Modifico o seu campo “Nome” para "Gabriel"
 And Outro moderador do sistema remove o usuário com “Nome” e “ID” iguais a “Lucas” e “12392”
 And Confirmo a modificação
-Then Posso ver mensagem de erro "Usuário não existente!", pois o usuário com “Nome” e “ID” iguais a “Lucas” e “12392” foi removido do sistema
+Then Posso ver mensagem de erro "Usuário não existente!", pois o usuário com “Nome” e “ID” iguais a “Lucas” e “12392” foi removido do sistema, logo não há edição
