@@ -51,7 +51,7 @@ Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de 
 	When Eu tento remover o usuário comum "Marcelo" com id “” 
 	Then Posso ver uma mensagem de erro "Id não foi preenchido"
 	And Nenhum usuário é removido do sistema
-	And Posso ver uma messagem "preencha todos os campo"
+	And Posso ver uma mensagem "Preencha todos os campos"
 
 Scenario: Tentativa mal sucedida de remover um usuário comum devido a falta de preenchimento do nome do usuario.
 	Given Eu estou logado como usuário “administrador” com senha “1234”
