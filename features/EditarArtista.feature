@@ -19,4 +19,5 @@ And estou na pagina "Edição de artistas"
 And o artista "Hulk Sanches"  não esta cadastrado no sistema
 When preencho o campo "Nome" com "Hulk Sanches"
 Then vejo uma mensagem "Não existe nenhum artista com o nome fornecido"
-And o sistema atualizou os dados do artista
+When OK
+Then retorno a pagina "Edicao de artistas"
