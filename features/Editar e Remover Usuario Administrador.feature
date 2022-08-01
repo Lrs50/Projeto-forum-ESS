@@ -59,3 +59,13 @@ And Modifico o seu campo “Nome” para "Gabriel"
 And Outro moderador do sistema remove o usuário com “Nome” e “ID” iguais a “Lucas” e “12392”
 And Confirmo a modificação
 Then Posso ver mensagem de erro "Usuário não existente!", pois o usuário com “Nome” e “ID” iguais a “Lucas” e “12392” foi removido do sistema
+
+Scenario: Edição de ID mal sucedida pois ambos o usuário não está presente no sistema e o por preenchimento inválido dos dados
+Given O sistema possui um usuário administrador com “Nome”, “ID” e “Senha” iguais a “Lucas”, “12392” e “1234”
+And Eu estou logado como moderador do sistema
+And Estou na página “Edição de Usuários”
+When Eu seleciono o usuário administrador com “Nome”, “ID” e “Senha” iguais a “Lucas”, “12392” e “1234”
+And Modifico o seu campo “ID” para "Gabriel"
+And Outro moderador do sistema remove o usuário com “Nome” e “ID” iguais a “Lucas” e “12392”
+And Confirmo a modificação
+Then Posso ver mensagem de erro "Usuário não existente!", pois o usuário com “Nome” e “ID” iguais a “Lucas” e “12392” foi removido do sistema, e esse erro toma prioridade
