@@ -25,4 +25,3 @@ And estou na página "Remoção de usuário administrador"
 When eu removo o usuário com "Nome" "Lucas Reis" e "ID" "1981"
 Then eu vejo uma mensagem de erro "O usuario e o ID fornecidos não formam uma combinação existente"
 
-
