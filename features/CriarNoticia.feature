@@ -1,4 +1,4 @@
-Feature: Criar notícias
+Feature: Criar notícia
     As usuario administrador
     I want to criar noticias
     So that eu consigo alimentar o site e atrair novos usuários
