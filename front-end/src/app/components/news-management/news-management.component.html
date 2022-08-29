@@ -1,0 +1,54 @@
+<nz-card class="base-card" nzTitle="News Management">
+    <nz-space class="wfull" nzDirection="vertical">
+        <div *nzSpaceItem>
+            <button nz-button nzType="primary" (click)="onCreateNews()">
+                <i nz-icon nzType="plus-square"></i>
+                Create
+            </button>
+        </div>
+        <div *nzSpaceItem>
+            <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                <input type="text" nz-input placeholder="Search by title, author..." [(ngModel)]="filterText" (input)="filterNews()" />
+            </nz-input-group>
+            <ng-template #suffixIconButton>
+                <button nz-button nzType="primary" nzSearch>Search</button>
+            </ng-template>
+        </div>
+        <div *nzSpaceItem>
+            <nz-collapse [nzExpandIconPosition]="'right'">
+                <nz-collapse-panel *ngFor="let news of newsListFiltered; index as i" [nzHeader]="news.title" [nzActive]="false" [nzExtra]="extraTpl">
+                    <nz-space class="wfull" nzDirection="vertical">
+                        <span *nzSpaceItem>Title</span>
+                        <input *nzSpaceItem nz-input [nzSize]="'large'" placeholder="Title" [(ngModel)]="news.title" />
+                        <span *nzSpaceItem>Content</span>
+                        <textarea
+                            *nzSpaceItem
+                            nz-input
+                            [nzSize]="'large'"
+                            placeholder="Content"
+                            [nzAutosize]="{ minRows: 10, maxRows: 30 }"
+                            [(ngModel)]="news.markdownText"
+                        ></textarea>
+                        <div *nzSpaceItem style="float: right">
+                            <nz-space>
+                                <button *nzSpaceItem nz-button nzType="primary" (click)="onDeleteNews(news.id)" nzDanger>
+                                    <i nz-icon nzType="delete"></i>
+                                    Delete
+                                </button>
+                                <button *nzSpaceItem nz-button nzType="primary" (click)="onSaveNews(news.id, news.title, news.markdownText)">
+                                    <i nz-icon nzType="check"></i>
+                                    Save
+                                </button>
+                            </nz-space>
+                        </div>
+                    </nz-space>
+                    <ng-template #extraTpl>
+                        <span nz-typography>
+                            <strong> {{ news.edited ? 'Edited' : 'Created' }} at {{ news.date }} </strong>
+                        </span>
+                    </ng-template>
+                </nz-collapse-panel>
+            </nz-collapse>
+        </div>
+    </nz-space>
+</nz-card>

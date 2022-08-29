@@ -1,0 +1,65 @@
+<div class="home-grid-container">
+    <section class="main-content">
+        <router-outlet></router-outlet>
+    </section>
+    <section class="right-sidebar">
+        <nz-space class="space-center" nzDirection="vertical">
+            <div *nzSpaceItem>
+                <nz-statistic [nzValue]="666" [nzTitle]="'News'" [nzPrefix]="prefixNewsStats"></nz-statistic>
+                <ng-template #prefixNewsStats><i nz-icon nzType="file-text"></i></ng-template>
+            </div>
+            <div *nzSpaceItem>
+                <nz-statistic [nzValue]="666" [nzTitle]="'Users'" [nzPrefix]="prefixUsersStats"></nz-statistic>
+                <ng-template #prefixUsersStats><i nz-icon nzType="user"></i></ng-template>
+            </div>
+            <div *nzSpaceItem>
+                <nz-statistic [nzValue]="666" [nzTitle]="'Artists'" [nzPrefix]="prefixArtistsStats"></nz-statistic>
+                <ng-template #prefixArtistsStats><i nz-icon nzType="thunderbolt"></i></ng-template>
+            </div>
+            <div *nzSpaceItem>
+                <div *ngIf="isAdmin | async">
+                    <nz-space class="space-center" nzDirection="vertical">
+                        <nz-divider *nzSpaceItem nzText="Admin Panel"></nz-divider>
+                        <button
+                            *nzSpaceItem
+                            nzTooltipTitle="News Management"
+                            nzTooltipPlacement="leftTop"
+                            nz-button
+                            nz-tooltip
+                            nzType="default"
+                            nzBlock
+                            routerLink="management/news"
+                        >
+                            <i nz-icon nzType="file-text"></i>
+                            <span class="lg-text-hide">News Management</span>
+                        </button>
+                        <button
+                            *nzSpaceItem
+                            nz-button
+                            nz-tooltip
+                            nzType="default"
+                            nzBlock
+                            nzTooltipTitle="Users Management"
+                            nzTooltipPlacement="leftTop"
+                        >
+                            <i nz-icon nzType="team"></i>
+                            <span class="lg-text-hide">Users Management</span>
+                        </button>
+                        <button
+                            *nzSpaceItem
+                            nz-button
+                            nz-tooltip
+                            nzType="default"
+                            nzBlock
+                            nzTooltipTitle="Artists Management"
+                            nzTooltipPlacement="leftTop"
+                        >
+                            <i nz-icon nzType="thunderbolt"></i>
+                            <span class="lg-text-hide">Artists Management</span>
+                        </button>
+                    </nz-space>
+                </div>
+            </div>
+        </nz-space>
+    </section>
+</div>
